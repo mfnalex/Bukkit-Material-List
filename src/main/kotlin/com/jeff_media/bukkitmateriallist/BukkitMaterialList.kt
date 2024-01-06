@@ -1,6 +1,7 @@
 package com.jeff_media.bukkitmateriallist
 
 import com.jeff_media.bukkitmateriallist.util.McVersion
+import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.plugin.java.JavaPlugin
 import org.commonmark.Extension
@@ -52,6 +53,8 @@ class BukkitMaterialList: JavaPlugin() {
         return html
             .replace("{table}", table)
             .replace("{version}", McVersion.version)
+            .replace("{bukkitversion}", Bukkit.getVersion())
+            .replace("{bukkitbukkitversion}", Bukkit.getBukkitVersion())
     }
 
 }

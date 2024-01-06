@@ -93,7 +93,11 @@ class ListEntry(val material: Material) {
 
     init {
         for((key, value) in functions) {
-            properties[key] = value(material) ?: " "
+            try {
+                properties[key] = value(material) ?: " "
+            } catch (throwable: Throwable) {
+                properties[key] = "n/a"
+            }
         }
     }
 
