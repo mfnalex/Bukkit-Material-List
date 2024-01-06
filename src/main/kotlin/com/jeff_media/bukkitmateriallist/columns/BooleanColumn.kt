@@ -8,9 +8,9 @@ abstract class BooleanColumn(material: Material): Column<Boolean>(material) {
 
     override fun valueAsString(): String {
         return if(value()) {
-            "yes" //"true"
+            name() //"true"
         } else {
-            "" //"false"
+            " " //"false"
         }
     }
 

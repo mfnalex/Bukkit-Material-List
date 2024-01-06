@@ -1,9 +1,11 @@
 package com.jeff_media.bukkitmateriallist
 
+import com.jeff_media.bukkitmateriallist.util.McVersion
 import org.bukkit.Material
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 import java.util.stream.Collectors
+
 
 class BukkitMaterialList: JavaPlugin() {
 
@@ -14,12 +16,18 @@ class BukkitMaterialList: JavaPlugin() {
 
     private fun createMaterialList() {
         val header: String = ListEntry.getHeader()
-        val contents: String = Material.entries.stream()
+        val headerSeparator: String = ListEntry.getHeaderSeparator()
+        val table: String = Material.entries.stream()
             .sorted(Comparator.comparing(Material::name))
             .filter { !it.name.startsWith("LEGACY_") }
-            .map { ListEntry(it).contents() }
+            .map { ListEntry(it).table() }
             .collect(Collectors.joining("\n"))
 
-        File(dataFolder, "materials.md").writeText(header + "\n" + contents)
+        val version: String = McVersion.version
+
+        val content = header + System.lineSeparator() + headerSeparator + System.lineSeparator() + table
+
+        File(dataFolder, "${version}-table.md").writeText(content)
     }
+
 }

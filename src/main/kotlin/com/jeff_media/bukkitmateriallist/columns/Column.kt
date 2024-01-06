@@ -4,11 +4,16 @@ import org.bukkit.Material
 
 abstract class Column<T>(val material: Material) {
 
-        abstract fun name(): String
-        abstract fun value(): T?
+    abstract fun name(): String
+    abstract fun value(): T?
 
-        open fun valueAsString(): String {
-            return value().toString()
-        }
+    open fun valueAsString(): String {
+        if(value() == null) return " "
+        return value().toString()
+    }
+
+    fun material(): Material {
+        return material
+    }
 
 }

@@ -11,4 +11,8 @@ class ColumnName(material: Material) : StringColumn(material) {
     override fun value(): String {
         return material.name
     }
+
+    override fun valueAsString(): String {
+        return "**${value()}**"
+    }
 }
