@@ -20,7 +20,7 @@ class BukkitMaterialList: JavaPlugin() {
         val table: String = Material.entries.stream()
             .sorted(Comparator.comparing(Material::name))
             .filter { !it.name.startsWith("LEGACY_") }
-            .map { ListEntry(it).table() }
+            .map { ListEntry(it).getTable() }
             .collect(Collectors.joining("\n"))
 
         val version: String = McVersion.version
