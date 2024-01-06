@@ -1,9 +1,9 @@
 <!--- Buttons start -->
 <!--suppress HtmlDeprecatedAttribute -->
 <p align="center">
-  <!--<a href="https://www.spigotmc.org/threads/custom-block-data-persistentdatacontainer-for-blocks.512422/">
+  <a href="https://www.spigotmc.org/threads/list-of-materials-and-their-data.631970/">
     <img src="https://static.jeff-media.com/img/button_spigotmc_thread.png?3" alt="SpigotMC Thread">
-  </a>-->
+  </a>
   <a href="https://discord.jeff-media.com/">
     <img src="https://static.jeff-media.com/img/button_discord.png?3" alt="Discord">
   </a>
