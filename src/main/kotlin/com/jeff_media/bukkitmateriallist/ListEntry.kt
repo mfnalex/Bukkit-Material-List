@@ -13,6 +13,8 @@ class ListEntry(val material: Material) {
         init {
             functions["name"] = { it.name }
 
+            functions["numericId"] = { it.id.toString() }
+
             // Block / Item
             functions["isBlock"] = { if (it.isBlock) "block" else null }
             functions["isItem"] = { if (it.isItem) "item" else null }
