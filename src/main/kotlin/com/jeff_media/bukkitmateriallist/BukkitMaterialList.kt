@@ -3,6 +3,11 @@ package com.jeff_media.bukkitmateriallist
 import com.jeff_media.bukkitmateriallist.util.McVersion
 import org.bukkit.Material
 import org.bukkit.plugin.java.JavaPlugin
+import org.commonmark.Extension
+import org.commonmark.ext.gfm.tables.TablesExtension
+import org.commonmark.node.Node
+import org.commonmark.parser.Parser
+import org.commonmark.renderer.html.HtmlRenderer
 import java.io.File
 import java.util.stream.Collectors
 
@@ -25,9 +30,23 @@ class BukkitMaterialList: JavaPlugin() {
 
         val version: String = McVersion.version
 
-        val content = header + System.lineSeparator() + headerSeparator + System.lineSeparator() + table
+        val markdown = header + System.lineSeparator() + headerSeparator + System.lineSeparator() + table
+        File(dataFolder, "${version}-table.md").writeText(markdown)
 
-        File(dataFolder, "${version}-table.md").writeText(content)
+        val html = html(markdown)
+        File(dataFolder, "${version}-table.html").writeText(html)
+    }
+
+    private fun html(markdown: String): String {
+        val extensions: List<Extension> = listOf(TablesExtension.create())
+        val parser: Parser = Parser.builder()
+            .extensions(extensions)
+            .build()
+        val document: Node = parser.parse(markdown)
+        val renderer: HtmlRenderer = HtmlRenderer.builder()
+            .extensions(extensions)
+            .build()
+        return renderer.render(document)
     }
 
 }

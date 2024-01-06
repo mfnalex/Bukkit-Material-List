@@ -18,8 +18,14 @@ repositories {
 
 dependencies {
     //testImplementation("org.jetbrains.kotlin:kotlin-test")
+
     compileOnly("org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT")
+
     implementation(kotlin("reflect"))
+
+    // markdown
+    implementation("org.commonmark:commonmark:0.21.0")
+    implementation("org.commonmark:commonmark-ext-gfm-tables:0.21.0")
 }
 
 //tasks.test {
