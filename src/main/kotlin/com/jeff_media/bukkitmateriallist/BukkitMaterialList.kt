@@ -31,13 +31,14 @@ class BukkitMaterialList: JavaPlugin() {
         val version: String = McVersion.version
 
         val markdown = header + System.lineSeparator() + headerSeparator + System.lineSeparator() + table
-        File(dataFolder, "${version}-table.md").writeText(markdown)
+        File(dataFolder, "${version}.md").writeText(markdown)
 
         val html = html(markdown)
-        File(dataFolder, "${version}-table.html").writeText(html)
+        File(dataFolder, "${version}.html").writeText(html)
     }
 
     private fun html(markdown: String): String {
+        val html: String = BukkitMaterialList::class.java.getResource("/template.html")!!.readText()
         val extensions: List<Extension> = listOf(TablesExtension.create())
         val parser: Parser = Parser.builder()
             .extensions(extensions)
@@ -46,7 +47,11 @@ class BukkitMaterialList: JavaPlugin() {
         val renderer: HtmlRenderer = HtmlRenderer.builder()
             .extensions(extensions)
             .build()
-        return renderer.render(document)
+        val table : String= renderer.render(document)
+
+        return html
+            .replace("{table}", table)
+            .replace("{version}", McVersion.version)
     }
 
 }
