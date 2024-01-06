@@ -1,0 +1,4 @@
+name: BukkitMaterialList
+main: com.jeff_media.bukkitmateriallist.BukkitMaterialList
+version: ${version}
+api-version: "1.13"
