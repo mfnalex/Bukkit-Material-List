@@ -4,6 +4,7 @@ import java.io.FileNotFoundException
 plugins {
     kotlin("jvm") version "1.9.21"
     id("com.github.johnrengelman.shadow") version("8.1.1")
+    `maven-publish`
 }
 
 group = "com.jeff-media"
@@ -13,13 +14,14 @@ val testServerPath = File("C:\\mctest")
 
 repositories {
     mavenCentral()
+    mavenLocal()
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
 }
 
 dependencies {
     //testImplementation("org.jetbrains.kotlin:kotlin-test")
 
-    compileOnly("org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT")
+    compileOnly("org.bukkit:bukkit:1.20.5-R0.1-SNAPSHOT-compostchances")
 
     implementation(kotlin("reflect"))
 
@@ -57,4 +59,16 @@ tasks.register<Copy>("copyToTestServer") {
 
 if(testServerPath.exists()) {
     tasks.getByName("build").dependsOn("copyToTestServer")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.jeff-media"
+            artifactId = "bukkit-material-list"
+            version = project.version.toString()
+
+            from(components["java"])
+        }
+    }
 }
