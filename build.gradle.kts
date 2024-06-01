@@ -4,10 +4,11 @@ import java.io.FileNotFoundException
 plugins {
     kotlin("jvm") version "1.9.21"
     id("com.github.johnrengelman.shadow") version("8.1.1")
+    `maven-publish`
 }
 
 group = "com.jeff-media"
-version = "1.0.1-SNAPSHOT"
+version = "1.0-SNAPSHOT"
 
 val testServerPath = File("C:\\mctest")
 
@@ -61,4 +62,16 @@ tasks.register<Copy>("copyToTestServer") {
 
 if(testServerPath.exists()) {
     tasks.getByName("build").dependsOn("copyToTestServer")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.jeff-media"
+            artifactId = "bukkit-material-list"
+            version = project.version.toString()
+
+            from(components["java"])
+        }
+    }
 }

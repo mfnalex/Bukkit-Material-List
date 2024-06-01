@@ -78,7 +78,17 @@ class ListEntry(val material: Material) {
             // creativeCategory
             functions["creativeCategory"] = { it.creativeCategory?.name }
 
-
+            // compostchance
+            functions["compostChance"] = {
+                try {
+                    it.compostChance
+                    if (it.isCompostable) {
+                        it.compostChance.toString()
+                    } else null
+                } catch (throwable: Throwable) {
+                    null
+                }
+            }
 
         }
 
