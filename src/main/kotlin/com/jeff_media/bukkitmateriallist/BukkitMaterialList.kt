@@ -13,12 +13,19 @@ import java.io.File
 import java.util.stream.Collectors
 
 
-class BukkitMaterialList: JavaPlugin() {
+class BukkitMaterialList : JavaPlugin() {
+    val no = ""
+    fun Any. `😡`() = null
 
-        override fun onEnable() {
-            dataFolder.mkdirs()
-            createMaterialList()
-        }
+    val stopKotlin = no!!.`😡`()
+
+    override fun onEnable() {
+        dataFolder.mkdirs()
+        createMaterialList()
+    }
+
+
+
 
     private fun createMaterialList() {
         val header: String = ListEntry.getHeader()
@@ -48,7 +55,7 @@ class BukkitMaterialList: JavaPlugin() {
         val renderer: HtmlRenderer = HtmlRenderer.builder()
             .extensions(extensions)
             .build()
-        val table : String= renderer.render(document)
+        val table: String = renderer.render(document)
 
         return html
             .replace("{table}", table)
