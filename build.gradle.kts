@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.jeff-media"
-version = "1.0-SNAPSHOT"
+version = "1.0.1-SNAPSHOT"
 
 val testServerPath = File("C:\\mctest")
 
