@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.jeff-media"
-version = "1.0.1-SNAPSHOT"
+version = "1.0.2-SNAPSHOT"
 
 val testServerPath = File("C:\\mctest")
 
@@ -19,12 +19,7 @@ repositories {
 }
 
 dependencies {
-    //testImplementation("org.jetbrains.kotlin:kotlin-test")
-
-    // Using my compostchances fork until it gets merged
-    // https://hub.spigotmc.org/stash/users/mfnalex/repos/craftbukkit-compostchances/browse
-    // https://hub.spigotmc.org/stash/users/mfnalex/repos/bukkit-compostchances/browse
-    compileOnly("org.bukkit:bukkit-compostchances:1.20.6-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.21-R0.1-SNAPSHOT")
 
     implementation(kotlin("reflect"))
 

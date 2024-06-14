@@ -19,9 +19,10 @@ Pull requests are welcome, especially to improve how the HTML lists look.
 
 # Versions
 ## Latest
-- 1.20.6: [HTML (recommended)](https://hub.jeff-media.com/bukkit-materials/1.20.6.html) | [Markdown](versions/1.20.6.md)
+- 1.21: [HTML (recommended)](https://hub.jeff-media.com/bukkit-materials/1.21.html) | [Markdown](versions/1.21.md)
 
 ## Old versions
+- 1.20.6: [HTML (recommended)](https://hub.jeff-media.com/bukkit-materials/1.20.6.html) | [Markdown](versions/1.20.6.md)
 - 1.20.4: [HTML (recommended)](https://hub.jeff-media.com/bukkit-materials/1.20.4.html) | [Markdown](versions/1.20.4.md)
 - 1.19.4: [HTML (recommended)](https://hub.jeff-media.com/bukkit-materials/1.19.4.html) | [Markdown](versions/1.19.4.md)
 - 1.18.2: [HTML (recommended)](https://hub.jeff-media.com/bukkit-materials/1.18.2.html) | [Markdown](versions/1.18.2.md)

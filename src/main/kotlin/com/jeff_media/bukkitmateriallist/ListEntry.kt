@@ -82,9 +82,9 @@ class ListEntry(val material: Material) {
             functions["compostChance"] = {
                 try {
                     it.compostChance
-                    if (it.isCompostable) {
+                    //if (it.isCompostable) {
                         it.compostChance.toString()
-                    } else null
+                    //} else null
                 } catch (throwable: Throwable) {
                     null
                 }
